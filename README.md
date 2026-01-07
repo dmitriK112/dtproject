@@ -46,7 +46,7 @@ The structure of the Star Schema is illustrated in the diagram below.
 
 ---
 ## **3. ELT Process in Snowflake**
-The ELT process consists of three main phases: `Extract`, `Load`, and `Transform`. The project follows an **ELT (Extract, Load, Transform)** workflow in Snowflake.
+The ELT process consists of three main phases: `Extract`, `Load`, and `Transform`. 
 
 ---
 ### **3.1 Extract**
@@ -187,8 +187,14 @@ The dashboard contains **6 visualizations** that provide a comprehensive overvie
 
 
 ---
-### **Graph 1: distribution of orders delivered on time, early, and late**
+### **Chart 1: distribution of orders delivered on time, early, and late**
 Shows the percentage of orders delivered early, on time, or late. This is a key metric for logistics performance.
+
+<p align="center">
+  <img src="img/chart1.png" width="50%" alt="chart1">
+  <br>
+  <em>Chart 1</em>
+</p>
 
 ```sql
 select case 
@@ -206,8 +212,14 @@ group by delivery_status
 order by delivery_status;
 ```
 ---
-### **Graph 2: total revenue by discount category**
+### **Chart 2: total revenue by discount category**
 Compares revenue across different discount tiers. This helps identify the most profitable pricing strategy.
+
+<p align="center">
+  <img src="img/chart2.png" width="50%" alt="chart2">
+  <br>
+  <em>Chart 2</em>
+</p>
 
 ```sql
 select case 
@@ -222,8 +234,14 @@ group by discount_category
 order by total_revenue desc;
 ```
 ---
-### **Graph 3: monthly revenue in 1992**
+### **Chart 3: monthly revenue in 1992**
 Shows the total sales trend month-over-month for the year 1992 to identify seasonal patterns.
+
+<p align="center">
+  <img src="img/chart3.png" width="50%" alt="chart3">
+  <br>
+  <em>Chart 3</em>
+</p>
 
 ```sql
 select d.month, sum(f.total_amount) as monthly_revenue
@@ -235,8 +253,14 @@ group by d.month
 order by d.month;
 ```
 ---
-### **Graph 4: the number of orders grouped by their value**
+### **Chart 4: the number of orders grouped by their value**
 A histogram showing how many orders fall into specific value ranges.
+
+<p align="center">
+  <img src="img/chart4.png" width="50%" alt="chart4">
+  <br>
+  <em>Chart 4</em>
+</p>
 
 ```sql
 select case 
@@ -253,8 +277,14 @@ group by order_category
 order by order_category;
 ```
 ---
-### **Graph 5: top best-selling products**
+### **Chart 5: top best-selling products**
 Lists the most popular items based on total quantity sold.
+
+<p align="center">
+  <img src="img/chart5.png" width="50%" alt="chart5">
+  <br>
+  <em>Chart 5</em>
+</p>
 
 ```sql
 select p.name as product_name, sum(f.quantity) as total_sold
@@ -266,8 +296,14 @@ order by sum(f.quantity) desc
 limit 5;
 ```
 ---
-### **Graph 6: distribution of delivery delays**
+### **Chart 6: distribution of delivery delays**
 Shows the exact number of days orders were delayed or early. This helps spot outliers in the supply chain.
+
+<p align="center">
+  <img src="img/chart6.png" width="50%" alt="chart6">
+  <br>
+  <em>Chart 6</em>
+</p>
 
 ```sql
 select datediff(day, c_date.date, r_date.date) days_late,
