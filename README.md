@@ -1,4 +1,5 @@
 # **ELT Project: Retail Sales Analytics**
+The project focuses on analyzing sales trends, supply chain efficiency, and customer purchasing behavior based on historical transaction data. The resulting model enables multidimensional analysis and visualization of key metrics. 
 ## **1. Introduction**
 In this project, I analyze data related to **retail sales and supply chain management**. The goal of the analysis is to understand:
 - **Sales trends** and revenue growth.
